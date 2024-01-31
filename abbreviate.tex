@@ -1,0 +1,397 @@
+\makeatletter
+\chaptermark{List of Abbreviations}
+\sectionmark{}
+% \newcommand{\tocfill}{\cleaders\hbox{$\m@th \mkern\@dotsep mu . \mkern\@dotsep mu$}\hfill} % leading dots
+\newcommand{\tocfill}{\cleaders\hbox{}\hfill}
+\makeatother
+\newcommand{\abbrlabel}[1]{\makebox[3cm][l]{\textbf{#1}\ \tocfill}}
+\newenvironment{abbreviations}{\begin{list}{}{\renewcommand{\makelabel}{\abbrlabel}%
+        \setlength{\labelwidth}{3cm}\setlength{\leftmargin}{\labelwidth+\labelsep}%
+                                              \setlength{\itemsep}{0pt}}}{\end{list}}
+                     
+\begin{spacing}{0.75}
+\begin{abbreviations}
+% Paste abbreviations below   
+\item[ABIN] A20-Binding Inhibitor of NF-κB
+\item[AI] Artificial Intelligence
+\item[ALS] Amyotrophic Lateral Sclerosis
+\item[CAPS] Cryopyrin-Associated Periodic Syndrome
+\item[CARD] Caspase Recruitment Domain
+\item[CCD] Charge-Coupled Device
+\item[CD] Cluster of Differentiation
+\item[CI] Confidence Interval
+\item[CMOS] Complementary Metal-Oxide-Semiconductor
+\item[COVID-19] Coronavirus Disease 2019
+\item[CPU] Central Processing Unit
+\item[CRediT] Contributor Roles Taxonomy
+\item[CRISPR] Clustered Regularly Interspaced Short Palindromic Repeats
+\item[cryoEM] Cryo-Electron Microscopy
+\item[CSV] Comma-Separated Values
+\item[Ct] Cycle of Threshold
+\item[DAPI] 4′, 6-Diamidino-2-Phenylindole
+\item[DD] Death Domain
+\item[DISC] Death-Inducing Signaling Complex
+\item[DMSO] Dimethyl Sulfoxide
+\item[DNA] Deoxyribonucleic Acid
+\item[e.g.] Exempli Gratia (\emph{for example}, Latin)
+\item[EDV] Elektronische Datenverarbeitung
+\item[eGFP] Enhanced Green Fluorescent Protein
+\item[EL4] Murine T-lymphoma Cell Line
+\item[EL4.NOB-1] EL4 Cell Line with No Binding-1
+\item[ELISA] Enzyme-Linked Immunosorbent Assay
+\item[ERK] Extracellular-Signal Regulated Kinase
+\item[FAS] Fatty Acid Synthase
+\item[FIJI] Fiji Is Just ImageJ
+\item[FRAP] Fluorescence Recovery After Photobleaching
+\item[GB] Gigabyte
+\item[GFP] Green Fluorescent Protein
+\item[GHz] Gigahertz
+\item[GPU] Graphics Processing Unit
+\item[HeLa] Henrietta Lacks (Cell Line)
+\item[HOIL1] Heme-Oxidized Iron Regulatory Protein 2 Ubiquitin Ligase 1
+\item[HP] High Performance
+\item[HPC] High-Performance Computing
+\item[HU] Humboldt University of Berlin
+\item[i.e.] id est (\emph{that is}, Latin)
+\item[ID] Identifier
+\item[IFS] Immuno-Fluorescence Staining
+\item[IKK] IκB Kinase
+\item[IL-1] Interleukin-1
+\item[IL-1R] IL-1 Receptor
+\item[IL-2] Interleukin-2
+\item[IL] Interleukin
+\item[ImageJ] Image Processing and Analysis in Java
+\item[IP] Immunoprecipitation
+\item[IRAK] IL-1R Associated Kinase
+\item[IRAK1] Interleukin-1 Receptor-Associated Kinase 1
+\item[IRAK2] Interleukin-1 Receptor-Associated Kinase 2
+\item[IRAK4] Interleukin-1 Receptor-Associated Kinase 4
+\item[IRF] Interferon Regulatory Factor
+\item[IRP2] Iron-Responsive Element-Binding Protein 2
+\item[IκB] Inhibitor κ B
+\item[JCB] Journal of Cell Biology
+\item[JNK] c-Jun N-terminal kinase
+\item[K63-Ub] Lysine 63-Linked Ubiquitin Chain
+\item[KO] Knockout
+\item[LAP] Linear Assignment Problem
+\item[LC] Liquid Chromatography
+\item[LoG] Laplacian of Gaussian
+\item[LPS] Lipopolysaccharide
+\item[LUBAC] Linear Ubiquitin Chain Assembly Complex
+\item[LUT] Look-Up Table
+\item[M1-Ub] Methionine 1-Linked Ubiquitin Chain
+\item[MAD] Median Absolute Deviation
+\item[MAP] Mitogen-Activated Protein
+\item[MAPK] Mitogen-Activated Protein Kinase
+\item[MATLAB] MATrix LABoratory
+\item[MAVS] Mitochondrial Antiviral Signaling Protein
+\item[metR] Methionine Repressor
+\item[MPCDF] Max Planck Computing and Data Facility
+\item[MPI-IB] Max Planck Institute for Infection Biology
+\item[MS] Mass Spectrometry
+\item[mScarlet] Modified Red Fluorescent Protein
+\item[MyD88] Myeloid Differentiation Primary Response 88
+\item[ND2] Nikon Imaging Software (NIS)-Elements Document Version 2
+\item[NEMO] NF-κB Essential Modulator
+\item[NF-κB] Nuclear Factor κ-Light-Chain-Enhancer of Activated B-cells
+\item[OpenCV] Open Source Computer Vision Library
+\item[OS] Operating System
+\item[P-Values] Probability Values
+\item[PALM] Photoactivated Localization Microscopy
+\item[PAMP] Pathogen-Associated Molecular Pattern
+\item[PARLEYS] Phase Portrait Analysis and Relative Kinetics Comparison Localization Analysis with Extraction of Data Yielding Statistics
+\item[PCA] Principal Component Analysis
+\item[PCR] Polymerase Chain Reaction
+\item[PIRATES] Pipeline for Image Analysis with Reference Images, Automated Tracking, Extraction of Intensities, and Segmentation
+\item[PP] Phase Portrait
+\item[PPAR] Peroxisome Proliferation Activator Receptor
+\item[PPI] Protein-Protein Interaction
+\item[PRR] Pattern Recognition Receptor
+\item[RA] Rheumatoid Arthritis
+\item[RAM] Random Access Memory
+\item[RANK] Receptor Activator of NF-κB
+\item[RAR] Retinoic Acid Receptor
+\item[RAS] Rat Sarcoma
+\item[RelA] NF-κB Subunit
+\item[rev] Reverse
+\item[RH] Ras Homolog
+\item[RING] Really Interesting New Gene
+\item[RLR] RIG-I-Like Receptor
+\item[RNA] Ribonucleic Acid
+\item[ROI] Region of Interest
+\item[sCMOS] Scientific Complementary Metal-Oxide-Semiconductor
+\item[SD] Standard Deviation
+\item[SEM] Standard Error of the Mean/Median
+\item[SH2] Src Homology 2
+\item[SIM] Structured Illumination Microscopy
+\item[SLB] Supported Lipid Bilayer
+\item[SMOC] Supramolecular Organizing Center
+\item[SNR] Signal-to-Noise Ratio
+\item[SRC] Proto-Oncogene Tyrosine-Protein Kinase Src
+\item[STORM] Stochastic Optical Reconstruction Microscopy
+\item[TAB] TGF-β-Activated Kinase 1 (TAK1)-Binding Protein
+\item[TAB2] TAB 2
+\item[TAK1] TGF-β-Activated Kinase 1
+\item[TIFF] Tagged Image File Format
+\item[TIR] Toll/Interleukin-1 Receptor
+\item[TIRAP] Toll/Interleukin-1 Receptor Domain-Containing Adaptor Protein
+\item[TIRF] Total Internal Reflection Fluorescence
+\item[TIRF-M] TIRF Microscopy
+\item[TLR] Toll-Like Receptor
+\item[TLR4] Toll-Like Receptor 4
+\item[TNF] Tumor Necrosis Factor
+\item[TRADD] TNF Receptor Superfamily Member 1A-Associated Via Death Domain
+\item[TRAF] TNF Receptor-Associated Factor
+\item[TRAF6] TNF Receptor-Associated Factor 6
+\item[TRIF] TIR Domain-Containing Adaptor Protein Inducing Interferon-β
+\item[WT] Wild-Type
+\item[XML] eXtensible Markup Language
+\item[YYYYMMDD] Year Month Day
+
+\begin{comment}
+\item[ABIN] A20-Binding Inhibitor of NF-κB
+\item[ACN] Acetonitrile
+\item[AHA] Azidohomoalanine
+\item[AHD] ABIN Homology Domain
+\item[AI] Artificial Intelligence
+\item[ALS] Amyotrophic Lateral Sclerosis
+\item[AP-1] Activator Protein 1
+\item[ATP] Adenosintriphosphate
+\item[BMDC] Bone Marrow-Derived Dendritic Cell
+\item[BMDM] Bone Marrow-Derived Macrophage
+\item[bp] Base Pair
+\item[BRCA1] Breast Cancer Gene 1
+\item[BSA] Bovine Serum Albumin
+\item[c-Jun] Cellular Jun Proto-Oncogene
+\item[CAA] Chloroacetamide
+\item[CAPS] Cryopyrin-Associated Periodic Syndrome
+\item[CARD] Caspase Recruitment Domain
+\item[CCD] Charge-Coupled Device
+\item[CD] Cluster of Differentiation
+\item[CD40] Cluster of Differentiation 40
+\item[CHX] Cycloheximide
+\item[CI] Confidence Interval
+\item[CMOS] Complementary Metal-Oxide-Semiconductor
+\item[COVID-19] Coronavirus Disease 2019
+\item[CPU] Central Processing Unit
+\item[CRediT] Contributor Roles Taxonomy
+\item[CRISPR] Clustered Regularly Interspaced Short Palindromic Repeats
+\item[cryoEM] Cryo-Electron Microscopy
+\item[CSV] Comma-Separated Values
+\item[Ct] Cycle of Threshold
+\item[CYLD] Ubiquitin Carboxyl-Terminal Hydrolase Cylindromatosis
+\item[DAMP] Danger Associated Molecular Pattern
+\item[DAPI] 4′, 6-Diamidino-2-Phenylindole
+\item[DD] Death Domain
+\item[dH\textsubscript{2}O] Distilled Water
+\item[DISC] Death-Inducing Signaling Complex
+\item[DLBCL] Diffuse Large B-cell Lymphoma
+\item[DMSO] Dimethyl Sulfoxide
+\item[DNA] Deoxyribonucleic Acid
+\item[DTT] Dithiothreitol
+\item[DUB] Deubiquitinating Enzyme
+\item[e.g.] Exempli Gratia (\emph{for example}, Latin)
+\item[EDTA] Ethylenediaminetetraacetic Acid
+\item[EDV] Elektronische Datenverarbeitung
+\item[eGFP] Enhanced Green Fluorescent Protein
+\item[EGFR] Epidermal Growth Factor Receptor
+\item[EL4] Murine T-lymphoma Cell Line
+\item[EL4.NOB-1] EL4 Cell Line with No Binding-1
+\item[ELISA] Enzyme-Linked Immunosorbent Assay
+\item[ERK] Extracellular-Signal Regulated Kinase
+\item[EtOH] Ethanol
+\item[FACS] Fluorescence Activated Cell Sorting
+\item[FAS] Fatty Acid Synthase
+\item[FBS] Fetal Bovine Serum
+\item[FIJI] Fiji Is Just ImageJ
+\item[FRAP] Fluorescence Recovery After Photobleaching
+\item[fwd] Forward
+\item[GB] Gigabyte
+\item[GFP] Green Fluorescent Protein
+\item[GHz] Gigahertz
+\item[GPCR] G Protein-Coupled Receptor
+\item[GPU] Graphics Processing Unit
+\item[gRNA] Guide RNA
+\item[GSDMD] Gasdermin
+\item[HEK] Human Embryonic Kidney
+\item[HEK293] Human Embryonic Kidney 293 (Cell Line)
+\item[HeLa] Henrietta Lacks (Cell Line)
+\item[HIV] Human Immunodeficiency Virus
+\item[HLA-B27] Human Leukocyte Antigen B27
+\item[HOIL1] HOIL-1-Interacting Protein
+\item[HOIP] HOIL-1-Interacting Protein
+\item[HP] High Performance
+\item[HPC] High-Performance Computing
+\item[HRP] Horse Radish Peroxidase
+\item[HU] Humboldt University of Berlin
+\item[i.e.] id est (\emph{that is}, Latin)
+\item[ID] Identifier
+\item[IFN] Interferon
+\item[IFS] Immuno-Fluorescence Staining
+\item[IKK] IκB Kinase
+\item[IKK1] Inhibitor of NF-κB Kinase Subunit α
+\item[IKK2] Inhibitor of NF-κB Kinase Subunit β
+\item[IKKg] Inhibitor of NF-κB Kinase Subunit γ
+\item[IL-1] Interleukin-1
+\item[IL-10] Interleukin-10
+\item[IL-12] Interleukin-12
+\item[IL-18] Interleukin-18
+\item[IL-18R] Interleukin-18 Receptor
+\item[IL-1R] IL-1 Receptor
+\item[IL-1R1] Interleukin-1 Receptor 1
+\item[IL-1R2] Interleukin-1 Receptor 2
+\item[IL-1R3] Interleukin-1 Receptor 3
+\item[IL-1Ra] Interleukin-1 Receptor Antagonist
+\item[IL-1RAcP] IL-1R Accessory Protein
+\item[IL-1RN] Interleukin-1 Receptor Antagonist
+\item[IL-2] Interleukin-2
+\item[IL-6] Interleukin-6
+\item[IL] Interleukin
+\item[ImageJ] Image Processing and Analysis in Java
+\item[IP] Immunoprecipitation
+\item[IRAK] IL-1R Associated Kinase
+\item[IRAK1] Interleukin-1 Receptor-Associated Kinase 1
+\item[IRAK2] Interleukin-1 Receptor-Associated Kinase 2
+\item[IRAK4] Interleukin-1 Receptor-Associated Kinase 4
+\item[IRF5] Interferon Regulatory Factor 5
+\item[IRF] Interferon Regulatory Factor
+\item[IRP2] Iron-Responsive Element-Binding Protein 2
+\item[IκB] Inhibitor κ B
+\item[JCB] Journal of Cell Biology
+\item[JNK] c-Jun N-terminal kinase
+\item[K11-Ub] Lysine 11-Linked Ubiquitin Chain
+\item[K48-Ub] Lysine 48-Linked Ubiquitin Chain
+\item[K63-Ub] Lysine 63-Linked Ubiquitin Chain
+\item[kDa] Kilodalton
+\item[KO] Knockout
+\item[LAP] Linear Assignment Problem
+\item[LC] Liquid Chromatography
+\item[LLPS] Liquid-Liquid Phase Separation
+\item[LoG] Laplacian of Gaussian
+\item[LPS] Lipopolysaccharide
+\item[LUBAC] Linear Ubiquitin Chain Assembly Complex
+\item[LUT] Look-Up Table
+\item[M1-pUb] Methionine 1-Linked polyUbiquitin Chain
+\item[M1-Ub] Methionine 1-Linked Ubiquitin Chain
+\item[mAB] Monoclonal Antibody
+\item[MAD] Median Absolute Deviation
+\item[MAP] Mitogen-Activated Protein
+\item[MAPK] Mitogen-Activated Protein Kinase
+\item[MAPKKK] MAP Kinase Kinase Kinase
+\item[MATLAB] MATrix LABoratory
+\item[MAVS] Mitochondrial Antiviral Signaling Protein
+\item[MEF] Mouse Embryonic Fibroblast
+\item[metR] Methionine Repressor
+\item[MKK] MAP Kinase Kinase
+\item[MPCDF] Max Planck Computing and Data Facility
+\item[MPI-IB] Max Planck Institute for Infection Biology
+\item[mRNA] Messenger RNA
+\item[MS] Mass Spectrometry
+\item[mScarlet] Modified Red Fluorescent Protein
+\item[mTOR] Mammalian Target of Rapamycin
+\item[MyD88] Myeloid Differentiation Primary Response 88
+\item[NBD] NEMO Binding Domain
+\item[ND2] Nikon Imaging Software (NIS)-Elements Document Version 2
+\item[NEMO] NF-κB Essential Modulator
+\item[NF-κB] Nuclear Factor κ-Light-Chain-Enhancer of Activated B-cells
+\item[NLRP3] Leucine Rich Repeat-Containing Protein 2
+\item[NZF] Npl4 Zinc Finger
+\item[OpenCV] Open Source Computer Vision Library
+\item[OS] Operating System
+\item[p-IRAK1] Phosphorylated Interleukin-1 Receptor-Associated Kinase 1
+\item[p-IRAK4] Phosphorylated Interleukin-1 Receptor-Associated Kinase 4
+\item[P-Values] Probability Values
+\item[PALM] Photoactivated Localization Microscopy
+\item[PAMP] Pathogen-Associated Molecular Pattern
+\item[PARLEYS] Phase Portrait Analysis and Relative Kinetics Comparison Localization Analysis with Extraction of Data Yielding Statistics
+\item[PBMC] Peripheral Blood Mononuclear Cell
+\item[PBS] Phosphate-Buffered Saline
+\item[PCA] Principal Component Analysis
+\item[PCR] Polymerase Chain Reaction
+\item[PFA] Paraformaldehyde
+\item[PI3K] Phosphoinositide-3-Kinase
+\item[PIP2] Phosphatidylinositol 4,5-Bisphosphate
+\item[PIRATES] Pipeline for Image Analysis with Reference Images, Automated Tracking, Extraction of Intensities, and Segmentation
+\item[PMSF] Phenylmethylsulfonyl Fluoride
+\item[PP] Phase Portrait
+\item[PPAR] Peroxisome Proliferation Activator Receptor
+\item[PPI] Protein-Protein Interaction
+\item[PRR] Pattern Recognition Receptor
+\item[pSILAC] Pulsed Stable Isotope Labeling by Amino Acids in the Culture
+\item[RA] Rheumatoid Arthritis
+\item[RAM] Random Access Memory
+\item[RANK] Receptor Activator of NF-κB
+\item[RAR] Retinoic Acid Receptor
+\item[RAS] Rat Sarcoma
+\item[RelA] NF-κB Subunit
+\item[RelB] NF-κB Subunit RelB
+\item[rev] Reverse
+\item[RH] Ras Homolog
+\item[RING] Really Interesting New Gene
+
+\item[RIP1] Receptor-Interacting Protein 1
+\item[RIP1-A20] Receptor-Interacting Protein 1 and A20
+\item[RIPK1] Receptor-Interacting Serine-Kinase 1
+\item[RLR] RIG-I-Like Receptor
+\item[RNA] Ribonucleic Acid
+\item[ROI] Region of Interest
+\item[sCMOS] Scientific Complementary Metal-Oxide-Semiconductor
+\item[SD] Standard Deviation
+\item[SDS] Sodium Dodecyl Sulfate
+\item[SDS-PAGE] SDS-Polyacrylamide Gel Electrophoresis
+\item[SEM] Standard Error of the Mean/Median
+\item[SH2] Src Homology 2
+\item[SH3] Src Homology 3
+\item[SHARPIN] SHANK-Associated RH Domain-Interacting Protein
+\item[SIM] Structured Illumination Microscopy
+\item[SLB] Supported Lipid Bilayer
+\item[SMOC] Supramolecular Organizing Center
+\item[SNP] Single Nucleotide Polymorphism
+\item[SNR] Signal-to-Noise Ratio
+\item[SRC] Proto-Oncogene Tyrosine-Protein Kinase Src
+\item[ssODN] Single Stranded Oligodeoxynucleotides
+\item[STORM] Stochastic Optical Reconstruction Microscopy
+\item[TAB] TAK Binding Protein
+\item[TAB2] TGF-β-Activated Kinase 1 (TAK1)-Binding Protein 2
+\item[TAB3] TGF-β-Activated Kinase 1 (TAK1)-Binding Protein 3
+\item[TAB] TGF-β-Activated Kinase 1 (TAK1)-Binding Protein
+\item[TAK] TGFβ Activated Kinase
+\item[TAK1] TGF-β-Activated Kinase 1
+\item[TAK1-TAB] TGF-β-Activated Kinase 1 (TAK1)-Binding Protein
+\item[Tax1bp1] Tax-1 Binding Protein 1
+\item[TBS] Tris-Buffered Saline
+\item[TFA] Trifluoroacetic Acid
+\item[TGF-β] Transforming Growth Factor β
+\item[TIFF] Tagged Image File Format
+\item[TIR] Toll/Interleukin-1 Receptor
+\item[TIRAP] Toll/Interleukin-1 Receptor Domain-Containing Adaptor Protein
+\item[TIRF] Total Internal Reflection Fluorescence
+\item[TIRF-M] Total Internal Reflection Fluorescence Microscopy
+\item[TIRFM] Total Internal Reflection Fluorescence Microscopy
+\item[TLR] Toll-Like Receptor
+\item[TLR3] Toll-Like Receptor 3
+\item[TLR4] Toll-Like Receptor 4
+\item[TLR7] Toll-Like Receptor 7
+\item[TLR] Toll-Like Receptor
+\item[TNF] Tumor Necrosis Factor
+\item[TNF-R] Tumor Necrosis Factor Receptor
+\item[TNFAIP] TNFα Induced Protein
+\item[TNFR] Tumor Necrosis Factor Receptor
+\item[TNIK] Traf2- and Nck-Interacting Kinase
+\item[TNIP] Tnfaip3 Interacting Protein
+\item[TOLLIP] Toll-Interacting Protein
+\item[TRADD] TNFRSF1A-Associated via Death Domain
+\item[TRAF] TNF Receptor-Associated Factor
+\item[TRAF6] TNF Receptor-Associated Factor 6
+\item[TRAF7] TNF Receptor-Associated Factor 7
+\item[TRAF] TNF Receptor-Associated Factor
+\item[TRIF] TIR Domain-Containing Adaptor Protein Inducing Interferon-β
+\item[UBAN] UBD in ABIN Proteins and NEMO
+\item[UBD] Ubiquitin Binding Domain
+\item[WT] Wild-Type
+\item[XML] eXtensible Markup Language
+\item[YYYYMMDD] Year Month Day
+\end{comment}
+
+\end{abbreviations}
+\end{spacing}

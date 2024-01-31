@@ -1,0 +1,520 @@
+\begin{comment}
+Follow this guide, step by step
+
+\subsubsection*{Requirements}
+\begin{itemize}
+    \item Linux cluster (Raven, Cobra)
+    \item R 4.0.2
+\end{itemize}
+
+\subsubsection*{Process}
+
+Paste the following in the terminal (**change `username` with your user name**):
+
+Connect to the cluster computer:
+
+\begin{verbatim}
+ssh username@raven.mpcdf.mpg.de
+\end{verbatim}
+
+\subsubsection*{R packages installation}
+
+Load interpreters
+
+\begin{verbatim}
+cd ~
+module purge
+module load jdk/8.265 gcc/10 impi/2021.2 fftw-mpi R/4.0.2
+\end{verbatim}
+
+Install libtiff
+
+\begin{verbatim}
+# Install libtiff
+mkdir libtiff
+cd libtiff
+wget https://download.osgeo.org/libtiff/tiff-4.3.0.tar.gz
+tar -xvf tiff-4.3.0.tar.gz
+mkdir install
+cd tiff-4.3.0
+mkdir compile
+cd compile
+# Change username here
+../configure --prefix=/u/username/libtiff/install
+make
+make install
+# Change username here
+export PKG\_CONFIG\_PATH=/u/username/libtiff/install/lib/pkgconfig/
+\end{verbatim}
+
+Change directory to home. Type `~` and press [Enter]
+
+Load R. Enter `R` on the terminal and press [Enter]
+
+Paste the following in the R console inside the terminal:
+
+\begin{verbatim}
+if("pacman" %in% rownames(installed.packages()) == FALSE)
+{install.packages("pacman")}
+\end{verbatim}
+
+When prompted, type `yes` to install and `yes` to create a personal library. After, another prompt will appear. Select which repository you would like to use. Enter `1` (cloud) and then press [Enter]
+
+Then, paste the following:
+
+\begin{verbatim}
+pacman::p\_load(ijtiff)
+\end{verbatim}
+
+
+After, paste the following:
+
+\begin{verbatim}
+pacman::p\_load(XML)
+\end{verbatim}
+
+Lastly, paste the following:
+
+\begin{verbatim}
+pacman::p\_load(dplyr, stringr, parallel, tidyr, data.table, ff, dtplyr, compiler, changepoint, R.utils, lemon, ggquiver, ggplot2, ggdark, scales, ggforce, viridis, RcppRoll, metR)
+\end{verbatim}
+
+Exit R by typing `q()` and then `N` to not save
+
+\subsubsection*{Python packages installation}
+
+Create Python Packages list. Open the terminal text editor, then type `nano` and paste:
+
+\begin{verbatim}
+aiohttp
+aiohttp-cors
+aioredis
+appdirs
+async-timeout
+attrs
+blessings
+boto3
+botocore
+cachetools
+certifi
+chardet
+click
+colorama
+colorful
+cycler
+decorator
+distlib
+et-xmlfile
+filelock
+future
+google-api-core
+google-auth
+googleapis-common-protos
+gpustat
+grpcio
+hiredis
+idna
+imageio
+imglyb
+jgo
+jmespath
+JPype1
+jsonschema
+kiwisolver
+matplotlib
+msgpack
+multidict
+nd2reader
+networkx
+numpy
+nvidia-ml-py3
+opencensus
+opencensus-context
+opencv-python
+openpyxl
+packaging
+pandas
+Pillow
+PIMS
+pims-nd2
+pipenv
+prometheus-client
+protobuf
+psutil
+py-spy
+pyasn1
+pyasn1-modules
+pyparsing
+pyrsistent
+python-dateutil
+pytz
+PyWavelets
+PyYAML
+ray
+requests
+rsa
+s3transfer
+scikit-image
+scipy
+scyjava
+six
+slicerator
+tifffile
+typing-extensions
+urllib3
+virtualenv
+virtualenv-clone
+xarray
+xlrd
+xmltodict
+yarl
+\end{verbatim}
+
+Close nano:
+\begin{itemize}
+    \item Press [CTRL] + [X] to close
+    \item Press [Y] to save
+    \item Save as `python\_requirements.txt`
+\end{itemize}
+
+> **Optional**: You may use screen to let process run on the background
+>    * Type `screen`
+>    * Wait 5s to load
+>    * Press [CTRL] + [A] and let go
+>    * Press [D]
+>    * To resume, type `screen -r`
+>> \_If there's more than one screen, type `screen -r` . to get the index of screens and then replace 00000 with the index (`screen -r 00000`)\_
+
+\begin{verbatim}
+# Install ImageJ
+wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
+unzip fiji-linux64.zip
+
+# Install conda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86\_64.sh
+chmod +x Miniconda3-latest-Linux-x86\_64.sh
+./Miniconda3-latest-Linux-x86\_64.sh
+export PATH=~/miniconda/bin:$PATH
+source ~/miniconda3/bin/activate
+export PATH="/miniconda3/bin":$PATH
+
+# Follow Terminal instructions to install conda
+
+# Create conda environment
+conda create -n dynamics\_pipeline python=3.8 anaconda
+\end{verbatim}
+
+Then paste,
+
+\begin{verbatim}
+# Create conda environment
+conda activate dynamics\_pipeline
+
+# Install conda packages
+conda install -c conda-forge setuptools
+conda install -c conda-forge javabridge
+conda install -c conda-forge libxml2
+pip install glib
+
+# Install Python packages
+python -m pip install --user -r python\_requirements.txt
+\end{verbatim}
+
+\subsubsection*{Git installation}
+
+Paste the following and rename the last element to yours:
+
+\begin{verbatim}
+git config --global user.name "username"
+git config --global user.email email@mpcdf.mpg.de
+ssh-keygen -t rsa -b 4096 -C "name@raven.mpcdf.mpg.de"
+\end{verbatim}
+
+Press [Enter] to skip some steps and get the ssh key. Then, copy the entire block of string from start to finish, including the \_ssh-rsa\_ and the ending name . Use `cat /u/username/.ssh/id\_rsa.pub` and change **user\_path** accordingly
+
+Sign-in to GitHub, https://github.com/login
+
+Paste the key into GitHub, https://github.com/settings/keys
+
+\begin{itemize}
+    \item New SSH key
+    \item Type in the cluster name as **Title** and paste the key under **Key**
+\end{itemize}
+
+Create a directory to save the pipeline scripts
+
+\begin{verbatim}
+mkdir dynamics\_pipeline
+cd dynamics\_pipeline
+\end{verbatim}
+
+Paste the following in the terminal to clone the pipeline:
+
+\begin{verbatim}
+git init
+git remote add origin git@github.com:MJ-Taylor-Lab/DynamicsPipeline.git
+git remote set-url origin git@github.com:MJ-Taylor-Lab/DynamicsPipeline.git
+git fetch --all
+git pull origin master
+\end{verbatim}
+
+---
+\subsection*{Image Analysis Pipeline}
+\end{comment}
+
+\subsubsection*{Input}
+The input data goes into ~/new\_pipeline/pending\_processing/batch\_date/Input/
+
+\begin{table}[htb]
+  \centering
+  \caption{Numbers which will be constant throughout the analysis}
+  \label{tab:constants}
+  \begin{tabular}{ | l | c | p{5cm} | }
+    \hline
+    \textbf{Parameter} & \textbf{Value} & \textbf{Comments} \\ \hline
+    \texttt{tiff\_compression\_level} & 5 & out of 10 \\ \hline
+    \texttt{cell\_diameter} & 25 & px, odd number \\ \hline
+    \texttt{puncta\_diameter} & 5 & px, odd number \\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[htb]
+  \centering
+  \caption{The dark frame is the camera noise. This typically is 1000 frames averaged, though 50 frames could do, so long as the standard deviation does not change with more images added. It should be at the same exposure as the images using the same camera as the microscopy images. Thus, one image could be used for multiple channels.}
+  \label{tab:dark\_frames}
+  \begin{tabular}{ | l | c | }
+    \hline
+    \textbf{Image} & \textbf{Exposure} \\ \hline
+    \texttt{20201026 Darkfield 200ms binned.tif} & 200 ms \\ \hline
+    \texttt{20201026 Darkfield 50ms binned.tif} & 50 ms \\ \hline
+    \texttt{20201026 Darkfield 100ms binned.tif} & 100 ms \\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[htb]
+  \centering
+  \caption{Directory paths}
+  \label{tab:directories}
+  \begin{tabular}{ | l | p{10cm} | }
+    \hline
+    \textbf{Contains} & \textbf{Path} \\ \hline
+    \texttt{input} & \texttt{\textasciitilde/Input} \\ \hline
+    \texttt{processing} & \texttt{\textasciitilde/Processing} \\ \hline
+    \texttt{output} & \texttt{\textasciitilde/Output} \\ \hline
+    \texttt{dark\_frames} & \texttt{\textasciitilde/dark\_frames} \\ \hline
+    \texttt{flat\_fields} & \texttt{\textasciitilde/flat\_fields} \\ \hline
+    \texttt{ImageJ} & \texttt{\textasciitilde/Fiji.app/ImageJ-linux64} \\ \hline
+  \end{tabular}
+\end{table}
+
+
+\subsubsection*{exclusion\_channels.csv}
+\begin{tabular}{|c|}
+    \hline
+    value \\
+    \hline
+    IL-1 \\
+    Brightfield \\
+    WideField \\
+    \hline
+\end{tabular}
+
+\subsubsection*{images.csv}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+    \hline
+    image & cohort & segment\_with & ligand & ligand\_density & trackmate\_max\_link\_distance & trackmate\_threshold & trackmate\_frame\_gap & T Cy5 protein\_name & T GFP protein\_name & T RFP protein\_name & WideField protein\_name \\
+    \hline
+    20211218 0p8nM 069-1R\_TRAF6\_MyD88 Grid\_1um\_11mol 001.nd2 & MyD88 TRAF6 1um\_grid & MyD88 & 0.8 nM IL-1 & 11 & 5 & 1.5 & 5 & IL-1 & MyD88 & TRAF6 & Brightfield \\
+    20211218 GFP calibration\_10pct\_60ms 005.nd2 & Calibrations & GFP &  &  & 2.5 & 1.5 & 5 & IL-1 & GFP & mScarlet & Brightfield \\
+    20211218 mScarlet calibration\_10pct\_60ms 001.nd2 & Calibrations & mScarlet &  &  & 2.5 & 1.5 & 5 & IL-1 & GFP & mScarlet & Brightfield \\
+    \hline
+\end{tabular}
+
+\begin{comment}
+\subsection*{Run}
+
+Connect to the cluster computer:
+
+\begin{verbatim}[language=bash]
+ssh username@raven.mpcdf.mpg.de
+\end{verbatim}
+
+If you need the latest scripts, paste in the Terminal:
+
+\begin{verbatim}[language=bash]
+cd dynamics\_pipeline
+git pull origin master
+\end{verbatim}
+
+\subsubsection*{SLURM Instructions}
+
+Pull the scripts before using \lstinline{git pull origin master} and modify the parameters of \lstinline{submit\_node.sh} accordingly.
+
+\begin{verbatim}
+#!/bin/bash -l
+    
+#SBATCH -o ./job.out.%j
+#SBATCH -e ./job.err.%j
+#SBATCH -D ./
+#SBATCH -J 20211218
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=email@mpcdf.mpg.de
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=72
+#SBATCH --time=24:00:00
+    
+# Load all needed packages
+module purge
+module load jdk/8.265 gcc/10 impi/2021.2 fftw-mpi R/4.0.2
+echo 'modules loaded'
+conda activate dynamics\_pipeline
+echo 'conda activated'
+    
+# Specify parameters
+## Path of parameters table
+## Change username to your cluster user name
+path=$'/raven/u/username/new\_pipeline/pending\_processing/batch\_date/Input/parameter\_tables'
+    
+## Scripts folder
+## Change username to your cluster user name
+cd /raven/u/username/dynamics\_pipeline
+    
+## Cores for parallel processing in R
+export OMP\_NUM\_THREDS=144
+    
+# Run scripts
+## Python scripts
+python mission\_control.py $path 12
+    
+## Run R Scripts
+Rscript --vanilla --verbose r\_scripts/extract\_intensity.R $path
+Rscript --vanilla --verbose r\_scripts/colocalization.R $path
+Rscript --vanilla --verbose r\_scripts/compile\_tables.R $path
+#Rscript --vanilla --verbose r\_scripts/compress\_everything.R $path
+    
+sleep 10
+\end{verbatim}
+
+Paste `sbatch submit\_node.sh` to submit to SLURM.
+
+\subsection*{Output}
+
+\end{comment}
+\subsubsection*{Essentials.csv.gz}
+
+\textbf{Identification}
+
+\begin{itemize}
+    \item RELATIVE\_PATH: Relative path to cell folder. Simplifies address to source images and parameters
+    \item COHORT: Cell line name (proteins tagged) plus any perturbations (for example, grids, inhibitors)
+    \item IMAGE: Name of image. Our format is:
+    \begin{itemize}
+        \item Date (YYYYMMDD)
+        \item Ligand concentration + density
+        \item Cell line name
+        \item Plate + well number
+    \end{itemize}
+    \item PROTEIN: Protein name
+    \item UNIVERSAL\_TRACK\_ID: Unique cluster identifier, computed as:
+    \begin{itemize}
+        \item IMAGE + '...'
+        \item CELL + '...'
+        \item PROTEIN + '...'
+        \item TRACK\_ID
+    \end{itemize}
+    \item UNIVERSAL\_SPOT\_ID: Unique spot identifier, computed as:
+    \begin{itemize}
+        \item UNIVERSAL\_TRACK\_ID + '...'
+        \item FRAME
+    \end{itemize}
+    \item ANALYSIS\_TIME\_STAMP: Date and time of analysis completion
+\end{itemize}
+
+\subsubsection*{Temporal measurements}
+
+\begin{itemize}
+    \item TIME: Time in seconds from when image acquisition started
+    \item FRAME: Image frame number
+    \item TIME\_SINCE\_LANDING: Time in seconds since the first spot in the cell appeared
+    \item FRAMES\_SINCE\_LANDING: Frames since the first spot in the cell appeared
+    \item TIME\_ADJUSTED: Cluster time in seconds
+    \item FRAMES\_ADJUSTED: Cluster time in frames
+    \item LIFETIME: Cluster time in seconds. May need to be recalculated after passing fi
+\end{itemize}
+
+I recommend calculating the fluorophore bleaching rate. Filter data (FRAMES\_SINCE\_LANDING, FRAMES\_ADJUSTED) based on the results of this parameter.
+
+\subsubsection*{Spatial measurements}
+
+\begin{itemize}
+    \item ABSOLUTE\_POSITION\_X: X-coordinate of cluster centroid in microns
+    \item ABSOLUTE\_POSITION\_Y: Y-coordinate of cluster centroid in microns
+    \item CELL\_AREA: Area of the cell in microns
+    \item NEAREST\_SPOT: Distance to nearest cluster in pixels
+    \item SPOTS\_WITHIN\_RADIUS: Number of spots within puncta radius
+\end{itemize}
+
+\subsubsection*{Amount of substance data}
+
+\begin{itemize}
+    \item NORMALIZED\_INTENSITY: Estimate number of molecules of the reference protein
+    \item STARTING\_NORMALIZED\_INTENSITY: Starting amount of the reference protein
+    \item MAX\_NORMALIZED\_INTENSITY: Max amount (brightness) of the relative protein
+    \item START\_TO\_MAX\_INTENSITY: Growth, measured as max – start amount
+    \item COMPLEMENTARY\_PROTEIN\_\#: Protein in other channel(s)
+    \item COMPLEMENTARY\_TOTAL\_INTENSITY\_\#: Brigness of other channel in arbitrary units
+    \item COMPLEMENTARY\_NORMALIZED\_INTENSITY\_\#: Estimate number of molecules of the query protein
+    \item COMPLEMENTARY\_UNIVERSAL\_SPOT\_ID\_\#: UNIVERSAL\_TRACK\_ID of the query protein spot
+\end{itemize}
+
+
+\subsubsection*{Parameters.csv.gz}
+
+\subsubsection*{Other information}
+\begin{itemize}
+    \item \texttt{RELATIVE\_PATH}: Identifies cell + protein in question
+    \item \texttt{LIGAND}: Ligand that stimulates 
+    \item \texttt{SEGMENT\_WITH}: Protein name of the channel that was used for segmenting the cells from the image
+\end{itemize}
+
+\subsubsection*{Fluorophore data}
+\begin{itemize}
+    \item \texttt{CALIBRATION\_IMAGE}: Image used for fluorophore normalization
+    \item \texttt{CALIBRATION\_TOTAL\_INTENSITY}: Median brightness of the fluorophore in arbitrary units
+    \item \texttt{CALIBRATION\_STANDARD\_DEVIATION}: Variance of the brightness of the fluorophore in arbitrary units
+\end{itemize}
+
+\subsubsection*{Microscope information}
+\begin{itemize}
+    \item \texttt{CHANNEL}: Microscope channel
+    \item \texttt{POWER}: Laser power
+    \item \texttt{EXCITATION}: Peak wavelength of laser excitation
+    \item \texttt{EMMISION}: Peak wavelength of emmision filter
+    \item \texttt{ANGLE}: TIRF critical angle in degrees
+    \item \texttt{DIRECTION}: Refraction direction in degrees (angle)
+    \item \texttt{FOCUS}: Objective z-axis distance (not the stage z-axis)
+    \item \texttt{OBJECTIVE}: Objective magnifying power
+    \item \texttt{TIME\_START}: Timestamp of when imaging acquisition started
+    \item \texttt{FRAME\_RATE}: Number of frames per second (Hz)
+\end{itemize}
+
+\subsubsection*{Spatial information}
+\begin{itemize}
+    \item \texttt{WIDTH}: Image width in microns
+    \item \texttt{HEIGHT}: Image height in microns
+    \item \texttt{CALIBRATION\_UM}: Pixel size in microns
+    \item \texttt{CELL\_DIAMETER}: Estimate cell diameter, as entered in pipeline. Used in the cell median-filter step, whose resulting image is \texttt{PROTEIN + '\_intensity\_ref.tif'}
+    \item \texttt{PUNCTA\_DIAMETER}: Estimate puncta diameter, as entered in pipeline. Used in the puncta median-filter step, whose resulting image is \texttt{PROTEIN + '\_tracking\_ref.tif'}
+    \item \texttt{SPOT\_RADIUS\_LIMIT}: Radius of spot
+    \item \texttt{CELL\_POSITION\_X}: X-coordinate of the cell in the image
+    \item \texttt{CELL\_POSITION\_Y}: Y-coordinate of the cell in the image
+\end{itemize}
+
+\subsubsection*{TrackMate information}
+\begin{itemize}
+  \item \verb|TRACKMATE_THRESHOLD|: TrackMate's threshold
+  \item \verb|TRACKMATE_FRAME_GAP|: TrackMate's maximum frame gap between spots appearing at a location (missed detection)
+  \item \verb|TRACKMATE_GAP_LINK_DISTANCE|: TrackMate's maximum frame gap distance in pixels between spots appearing at a location (missed detection)
+  \item \verb|TRACKMATE_MAX_LINK_DISTANCE|: Maximum distance in pixels before the spot gets classified as a new distinct track (cluster)
+\end{itemize}
